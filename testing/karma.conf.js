@@ -9,7 +9,7 @@ module.exports = (config) => {
 
     files: [
       {
-        pattern: './test-bundler.js',
+        pattern: './test-bundler.specs.js',
         watched: false,
         served: true,
         included: true
@@ -17,7 +17,7 @@ module.exports = (config) => {
     ],
 
     preprocessors: {
-      './test-bundler.js': ['webpack', 'sourcemap']
+      './test-bundler.specs.js': ['webpack', 'sourcemap']
     },
 
     webpack: webpackConfig,
@@ -29,7 +29,11 @@ module.exports = (config) => {
 
     reporters: ['mocha'],
 
+    mochaReporter: {
+      output: 'autowatch'
+    },
+
     colors: true,
-    logLevel: config.LOG_INFO
+    logLevel: config.LOG_ERROR
   });
 };

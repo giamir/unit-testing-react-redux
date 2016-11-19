@@ -1,7 +1,7 @@
 import 'babel-polyfill';
-
 import jasmineEnzyme from 'jasmine-enzyme';
-beforeEach(() => { jasmineEnzyme(); });
+
+beforeEach(() => { jasmineEnzyme(); }); // eslint-disable-line jasmine/no-global-setup
 
 const context = require.context('../app', true, /\.specs$/);
 context.keys().forEach(context);

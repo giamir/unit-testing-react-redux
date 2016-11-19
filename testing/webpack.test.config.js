@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -21,7 +22,7 @@ module.exports = {
   ],
 
   resolve: {
-    root: './app',
+    root: path.resolve(__dirname, 'app'),
     extensions: ['', '.js', '.jsx']
   },
 

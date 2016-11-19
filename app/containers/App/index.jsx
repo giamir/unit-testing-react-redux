@@ -1,10 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import A from 'components/A';
+import Button from 'components/Button';
 
 const App = () => (
-  <A href="https://giamir.com">giamir.com</A>
+  <Button>Save</Button>
 );
 
 export default (

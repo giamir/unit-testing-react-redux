@@ -1,6 +1,27 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:jasmine/recommended"
+  ],
+  "plugins": [
+    "jasmine"
+  ],
   "rules": {
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.specs.*",
+          "**/*.conf*",
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  },
+  "env": {
+    "jasmine": true
   }
 }

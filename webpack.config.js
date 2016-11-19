@@ -3,11 +3,11 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    javascript: './app/app.js',
-    html: './app/index.html'
+    javascript: path.resolve(__dirname, 'app/app.js'),
+    html: path.resolve(__dirname, 'app/index.html')
   },
   output: {
-    path: './dist',
+    path: path.resolve(__dirname, 'dist'),
     filename: './app.js'
   },
   module: {
@@ -40,7 +40,7 @@ module.exports = {
     })
   ],
   resolve: {
-    root: './app',
+    root: path.resolve(__dirname, 'app'),
     extensions: ['', '.js', '.jsx']
   }
 };
