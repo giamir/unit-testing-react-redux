@@ -4,6 +4,7 @@ import colors from 'colors';
 const textFieldStyles = css`
   background: ${colors.background};
   color: ${colors.primary};
+  width: 380px;
   display: block;
   margin: 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

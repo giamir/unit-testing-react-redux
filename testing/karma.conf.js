@@ -27,10 +27,20 @@ module.exports = (config) => {
       stats: 'errors-only'
     },
 
-    reporters: ['mocha'],
+    reporters: ['mocha', 'coverage'],
 
     mochaReporter: {
       output: 'autowatch'
+    },
+
+    coverageReporter: {
+      reporters: [
+        {
+          type: 'html',
+          dir: 'coverage'
+        },
+        { type: 'text-summary' }
+      ]
     },
 
     colors: true,

@@ -7,7 +7,7 @@ const renderComponent = (props = {}) => mount(
   <TextField {...props} />
 );
 
-describe('<TextField />', () => {
+describe('TextField <TextField />', () => {
   it('should render the text field', () => {
     const renderedComponent = renderComponent();
     expect(renderedComponent).toBePresent();

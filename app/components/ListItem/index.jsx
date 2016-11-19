@@ -6,13 +6,13 @@ import Wrapper from './Wrapper';
 const ListItem = props => (
   <Wrapper>
     <Item>
-      {props.children}
+      {props.item}
     </Item>
   </Wrapper>
 );
 
 ListItem.propTypes = {
-  children: PropTypes.any
+  item: PropTypes.any
 };
 
 export default ListItem;

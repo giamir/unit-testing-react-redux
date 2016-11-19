@@ -10,7 +10,7 @@ const renderComponent = (props = {}) => mount(
   </Button>
 );
 
-describe('<Button />', () => {
+describe('Button <Button />', () => {
   it('should render the button', () => {
     const renderedComponent = renderComponent();
     expect(renderedComponent).toBePresent();

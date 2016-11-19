@@ -3,21 +3,19 @@ import { mount } from 'enzyme';
 
 import ListItem from '../index';
 
-const children = 'A list item';
-const renderComponent = () => mount(
-  <ListItem>
-    {children}
-  </ListItem>
+const item = 'a list item';
+const renderComponent = (props = {}) => mount(
+  <ListItem {...props} />
 );
 
-describe('<ListItem />', () => {
+describe('ListItem <ListItem />', () => {
   it('should render the list item', () => {
     const renderedComponent = renderComponent();
     expect(renderedComponent).toBePresent();
   });
 
-  it('should have children', () => {
-    const renderedComponent = renderComponent();
-    expect(renderedComponent.find('div')).toHaveText(children);
+  it('should have item', () => {
+    const renderedComponent = renderComponent({ item });
+    expect(renderedComponent.find('div')).toHaveText(item);
   });
 });
