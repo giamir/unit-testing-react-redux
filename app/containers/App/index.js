@@ -1,5 +1,6 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import H1 from 'components/H1';
 import List from 'components/List';
@@ -14,15 +15,22 @@ const items = [
   'Enjoy the holiday'
 ];
 
-const App = () => (
-  <article>
+const AppWrapper = styled.div`
+  margin: 0 auto;
+  width: 500px;
+  display: flex;
+  min-height: 100%;
+  padding: 0 16px;
+  flex-direction: column;
+`;
+
+const App = props => (
+  <AppWrapper>
     <H1>Another Todo List</H1>
     <List component={ListItem} items={items} />
     <TextField placeholder="Add something to the list" />
     <Button>Add</Button>
-  </article>
+  </AppWrapper>
 );
 
-export default (
-  <App />
-);
+export default App;

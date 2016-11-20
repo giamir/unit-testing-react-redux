@@ -13,8 +13,4 @@ injectGlobal`
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-  article {
-    margin: 0 auto;
-    width: 400px;
-  }
 `;
