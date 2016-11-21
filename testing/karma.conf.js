@@ -3,9 +3,7 @@ const webpackConfig = require('./webpack.test.config');
 module.exports = (config) => {
   config.set({
     frameworks: ['jasmine'],
-    browsers: process.env.TRAVIS
-      ? ['ChromeTravis']
-      : ['Chrome'],
+    browsers: ['Chrome'],
 
     files: [
       {
@@ -36,7 +34,7 @@ module.exports = (config) => {
     coverageReporter: {
       reporters: [
         {
-          type: 'html',
+          type: 'lcov',
           dir: 'coverage'
         },
         { type: 'text-summary' }

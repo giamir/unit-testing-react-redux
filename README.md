@@ -1,4 +1,4 @@
-# Unit Testing React Redux
+# Unit Testing React Redux [![Build Status](https://snap-ci.com/giamir/unit-testing-react-redux/branch/master/build_image)](https://snap-ci.com/giamir/unit-testing-react-redux/branch/master)
 
 Helpful patterns to unit test a react redux app
 
