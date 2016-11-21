@@ -4,6 +4,9 @@ const webpack = require('webpack');
 module.exports = {
   devtool: 'inline-source-map',
   module: {
+    preloaders: [
+      { test: /\.jsx?$/, loader: 'istanbul', exclude: [/node_modules/, /specs/] }
+    ],
     loaders: [
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.css$/, loader: 'null-loader' },

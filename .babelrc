@@ -1,4 +1,4 @@
 {
   "presets": ["airbnb"],
-  "plugins": ["react-hot-loader/babel", "istanbul"]
+  "plugins": ["react-hot-loader/babel"]
 }

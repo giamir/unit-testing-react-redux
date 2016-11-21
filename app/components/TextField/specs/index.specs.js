@@ -30,10 +30,17 @@ describe('TextField <TextField />', () => {
     expect(onChangeSpy).toHaveBeenCalled();
   });
 
-  it('should handle enter key down events', () => {
+  it('should call onEnterKeyDown prop on enter key down events', () => {
     const onEnterKeyDownSpy = jasmine.createSpy('onKeyDownSpy');
     const renderedComponent = renderComponent({ onEnterKeyDown: onEnterKeyDownSpy });
     renderedComponent.find('input').simulate('keyDown', { key: 'Enter' });
     expect(onEnterKeyDownSpy).toHaveBeenCalled();
+  });
+
+  it('should not call onEnterKeyDown prop on enter key down events', () => {
+    const onEnterKeyDownSpy = jasmine.createSpy('onKeyDownSpy');
+    const renderedComponent = renderComponent({ onEnterKeyDown: onEnterKeyDownSpy });
+    renderedComponent.find('input').simulate('keyDown', { key: 'Escape' });
+    expect(onEnterKeyDownSpy).not.toHaveBeenCalled();
   });
 });
