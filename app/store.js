@@ -1,9 +1,15 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { fromJS } from 'immutable';
+import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
+import appSagas from './containers/App/sagas';
+
+const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore(initialState = {}) {
-  const middlewares = [];
+  const middlewares = [
+    sagaMiddleware
+  ];
 
   const enhancers = [
     applyMiddleware(...middlewares)
@@ -39,5 +45,6 @@ export default function configureStore(initialState = {}) {
     });
   }
 
+  sagaMiddleware.run(appSagas);
   return store;
 }

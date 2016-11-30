@@ -5,8 +5,8 @@ import Wrapper from './Wrapper';
 
 const ListItem = props => (
   <Wrapper>
-    <Item>
-      {props.item}
+    <Item href={props.item.link}>
+      {props.item.text}
     </Item>
   </Wrapper>
 );

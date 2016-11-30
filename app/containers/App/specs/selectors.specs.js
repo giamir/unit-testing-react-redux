@@ -1,21 +1,27 @@
 import { fromJS } from 'immutable';
 
 import {
-  selectList,
+  selectUsers,
   selectTextField
 } from '../selectors';
 
 describe('selectList', () => {
-  const listSelector = selectList();
-  it('should select the list', () => {
-    const list = ['an item'];
+  const listSelector = selectUsers();
+  it('should select the users name and html_url props', () => {
+    const users = [
+      {
+        name: 'Giamir',
+        html_url: 'https://giamir.com',
+        someOtherValue: 'hello'
+      }
+    ];
     const mockedState = fromJS({
       global: {
         textField: '',
-        list
+        users
       }
     });
-    expect(listSelector(mockedState)).toEqual(list);
+    expect(listSelector(mockedState)).toEqual([{text: 'Giamir', link: 'https://giamir.com'}]);
   });
 });
 
@@ -26,7 +32,7 @@ describe('selectTextField', () => {
     const mockedState = fromJS({
       global: {
         textField,
-        list: []
+        users: []
       }
     });
     expect(textFieldSelector(mockedState)).toEqual(textField);

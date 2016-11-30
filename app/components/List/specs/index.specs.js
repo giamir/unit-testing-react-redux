@@ -5,18 +5,20 @@ import ListItem from '../../ListItem';
 import List from '../index';
 
 describe('List <List />', () => {
-  it('should render the component if no items are passed', () => {
+  it('should not render the component if no items are passed', () => {
     const renderedComponent = mount(
       <List component={ListItem} />
     );
-    expect(renderedComponent.find(ListItem)).toBePresent();
+    expect(renderedComponent.find(ListItem)).not.toBePresent();
   });
 
   it('should render the items', () => {
-    const items = ['Hello', 'World'];
+    const items = [
+      { text: 'hello', link: 'world' }
+    ];
     const renderedComponent = mount(
       <List items={items} component={ListItem} />
     );
-    expect(renderedComponent.find(ListItem).length).toBe(2);
+    expect(renderedComponent.find(ListItem).length).toBe(1);
   });
 });

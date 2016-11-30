@@ -2,9 +2,14 @@ import { createSelector } from 'reselect';
 
 const selectGlobal = () => state => state.get('global');
 
-const selectList = () => createSelector(
+const selectUsers = () => createSelector(
   selectGlobal(),
-  globalState => globalState.get('list').toArray()
+  globalState => globalState.get('users').toJS().map((user) => {
+    return {
+      text: user.name,
+      link: user.html_url
+    };
+  })
 );
 
 const selectTextField = () => createSelector(
@@ -13,6 +18,6 @@ const selectTextField = () => createSelector(
 );
 
 export {
-  selectList,
+  selectUsers,
   selectTextField
 };

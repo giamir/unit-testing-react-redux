@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Item = styled.div`
+const Item = styled.a`
   display: flex;
   justify-content: space-between;
   width: 100%;

@@ -4,8 +4,8 @@ import { shallow } from 'enzyme';
 import Item from '../Item';
 
 describe('ListItem <Item />', () => {
-  it('should render an <div> tag', () => {
+  it('should render an <a> tag', () => {
     const renderedComponent = shallow(<Item />);
-    expect(renderedComponent).toHaveTagName('div');
+    expect(renderedComponent).toHaveTagName('a');
   });
 });

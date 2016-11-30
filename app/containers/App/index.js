@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 
-import { selectList, selectTextField } from './selectors';
+import { selectUsers, selectTextField } from './selectors';
 
-import { addItem, changeTextField } from './actions';
+import { changeTextField, loadUserInfo } from './actions';
 
 import H1 from 'components/H1';
 import List from 'components/List';
@@ -26,10 +26,10 @@ export class App extends React.Component {
   render() {
     return (
       <AppWrapper>
-        <H1>Another Todo List</H1>
-        <List component={ListItem} items={this.props.list} />
+        <H1>Github Profiles</H1>
+        <List component={ListItem} items={this.props.users} />
         <TextField
-          placeholder="Add something to the list"
+          placeholder="Add a github username"
           value={this.props.textField}
           onChange={this.props.onChangeText}
           onEnterKeyDown={this.props.onEnterKeyDown}
@@ -41,7 +41,7 @@ export class App extends React.Component {
 }
 
 App.propTypes = {
-  list: PropTypes.array,
+  users: PropTypes.array,
   textField: PropTypes.string,
   onChangeText: PropTypes.func,
   onClickButton: PropTypes.func,
@@ -51,13 +51,13 @@ App.propTypes = {
 export function mapDispatchToProps(dispatch) {
   return {
     onChangeText: evt => dispatch(changeTextField(evt.target.value)),
-    onClickButton: () => dispatch(addItem()),
-    onEnterKeyDown: () => dispatch(addItem())
+    onClickButton: () => dispatch(loadUserInfo()),
+    onEnterKeyDown: () => dispatch(loadUserInfo())
   };
 }
 
 const mapStateToProps = createStructuredSelector({
-  list: selectList(),
+  users: selectUsers(),
   textField: selectTextField()
 });
 

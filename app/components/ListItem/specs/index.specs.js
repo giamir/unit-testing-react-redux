@@ -3,19 +3,27 @@ import { mount } from 'enzyme';
 
 import ListItem from '../index';
 
-const item = 'a list item';
+const item = {
+  text: 'a list item',
+  link: 'a link'
+};
 const renderComponent = (props = {}) => mount(
   <ListItem {...props} />
 );
 
 describe('ListItem <ListItem />', () => {
   it('should render the list item', () => {
-    const renderedComponent = renderComponent();
+    const renderedComponent = renderComponent({ item });
     expect(renderedComponent).toBePresent();
   });
 
-  it('should have item', () => {
+  it('should have item text', () => {
     const renderedComponent = renderComponent({ item });
-    expect(renderedComponent.find('div')).toHaveText(item);
+    expect(renderedComponent.find('a')).toHaveText(item.text);
+  });
+
+  it('should have item link', () => {
+    const renderedComponent = renderComponent({ item });
+    expect(renderedComponent.find({ href: 'a link' })).toBePresent();
   });
 });
