@@ -2,6 +2,9 @@
 
 Helpful patterns to unit test a react redux app
 
+The approaches taken in this example to test React Redux are described in the following blog post:<br>
+[Unit Testing a React Redux App](https://giamir.com/unit-testing-a-react-redux-app)
+
 ## Installation instructions
 
 Clone from github and move into directory
